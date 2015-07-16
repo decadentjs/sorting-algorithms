@@ -1,7 +1,40 @@
-# minimal-react-browserify-starter
+# react-starter
 
-bare-bones react starter with browserify
+bare-bones [react](https://facebook.github.io/react/) starter
+using [reactify](https://npmjs.com/package/reactify) for jsx
+under [browserify](http://browserify.org)/[watchify](https://npmjs.com/package/wathcify)
+with [npm run scripts](http://substack.net/task_automation_with_npm_run)
+
+[view the starter demo](http://substack.neocities.org/react_starter.html)
+
+# quick start
+
+```
+$ npm run watch &
+$ npm start
+```
+
+# commands
 
 * `npm run build` - build for production
 * `npm run watch` - automatically recompile during development
-* `npm run start` - start a static development web server
+* `npm start` - start a static development web server
+
+# starter code
+
+``` js
+var React = require('react')
+var App = React.createClass({
+  getInitialState: function () { return { n: 0 } },
+  render: function () {
+    return <div>
+      <h1>clicked {this.state.n} times</h1>
+      <button onClick={this.handleClick}>click me!</button>
+    </div>
+  },
+  handleClick: function () {
+    this.setState({ n: this.state.n + 1 })
+  }
+})
+React.render(<App />, document.querySelector('#content'))
+```

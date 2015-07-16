@@ -11,9 +11,11 @@
     "watch": "watchify main.js -o public/bundle.js -dv"
   },
   "dependencies": {
+    "browserify": "^10.2.6",
     "ecstatic": "~0.8.0",
     "react": "~0.13.3",
     "reactify": "^1.1.1",
-    "uglify": "~0.1.5"
+    "uglify": "~0.1.5",
+    "watchify": "^3.2.3"
   }
 }
