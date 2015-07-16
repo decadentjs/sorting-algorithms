@@ -1,0 +1,19 @@
+{
+  "name": "react-starter",
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
+  },
+  "scripts": {
+    "build": "NODE_ENV=production browserify main.js | uglifyjs -cm > public/bundle.js",
+    "start": "ecstatic -p 8000 public",
+    "watch": "watchify main.js -o public/bundle.js -dv"
+  },
+  "dependencies": {
+    "ecstatic": "~0.8.0",
+    "react": "~0.13.3",
+    "reactify": "^1.1.1",
+    "uglify": "~0.1.5"
+  }
+}
