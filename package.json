@@ -17,5 +17,6 @@
     "reactify": "^1.1.1",
     "uglify": "~0.1.5",
     "watchify": "^3.2.3"
-  }
+  },
+  "license": "public domain"
 }
