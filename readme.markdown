@@ -91,7 +91,8 @@ adds.
 
 # variations
 
-Check out the [list of forks](https://github.com/substack/react-starter-hmr/network/members)
+Check out the [list of react-starter-hmr forks](https://github.com/substack/react-starter-hmr/network/members)
+and the [list of react-starter forks](https://github.com/substack/react-starter/network/members)
 to see how other people have customized this starter repo.
 
 # license
