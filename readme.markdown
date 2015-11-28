@@ -1,43 +1,85 @@
-# react-starter
+# react-starter-hmr
 
 bare-bones [react](https://facebook.github.io/react/) starter
-using [reactify](https://npmjs.com/package/reactify) for jsx
+using [babelify](https://npmjs.com/package/babelify) for es6 and jsx
 under [browserify](http://browserify.org)/[watchify](https://npmjs.com/package/watchify)
-with [npm run scripts](http://substack.net/task_automation_with_npm_run)
-
-[view the starter demo](http://substack.neocities.org/react_starter.html)
+with hot module replacement from [browserify-hmr](https://npmjs.com/package/browserify-hmr)
+and [npm run scripts](http://substack.net/task_automation_with_npm_run)
 
 # quick start
 
 ```
 $ npm install
-$ npm run watch &
 $ npm start
 ```
 
 # commands
 
+* `npm start` - start a web server and recompile code for development
+* `npm run www` - start a static development web server
 * `npm run build` - build for production
 * `npm run watch` - automatically recompile during development
-* `npm start` - start a static development web server
 
 # starter code
 
+## main.js
+
+`main.js` is the entry point that sets up the rendering loop. It uses the `ud`
+module to replace the `<App />` reference at runtime when any of the files
+change.
+
 ``` js
 var React = require('react')
-var App = React.createClass({
-  getInitialState: function () { return { n: 0 } },
-  render: function () {
+var ReactDOM = require('react-dom')
+var ud = require('ud')
+import App from './lib/app.js'
+
+ReactDOM.render(
+  React.createElement(ud.defn(module, App), null),
+  document.querySelector('#content')
+)
+```
+
+## lib/app.js
+
+Track a counter `n` as state and increment it when the user clicks a button.
+
+``` js
+var React = require('react')
+import Times from './times.js'
+
+class App extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = { n: 0 }
+  }
+  render () {
     return <div>
-      <h1>clicked {this.state.n} times</h1>
-      <button onClick={this.handleClick}>click me!</button>
+      <Times n={this.state.n} />
+      <button onClick={this.handleClick.bind(this)}>click me!</button>
     </div>
-  },
-  handleClick: function () {
+  }
+  handleClick () {
     this.setState({ n: this.state.n + 1 })
   }
-})
-React.render(<App />, document.querySelector('#content'))
+}
+
+export default App
+```
+
+## lib/times.js
+
+Display the number of clicks.
+
+``` js
+var React = require('react')
+
+class Times extends React.Component {
+  render () {
+    return <h1>clicked {this.props.n} times</h1>
+  }
+}
+export default Times
 ```
 
 # contributing

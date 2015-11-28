@@ -1,14 +1,9 @@
 var React = require('react')
-var App = React.createClass({
-  getInitialState: function () { return { n: 0 } },
-  render: function () {
-    return <div>
-      <h1>clicked {this.state.n} times</h1>
-      <button onClick={this.handleClick}>click me!</button>
-    </div>
-  },
-  handleClick: function () {
-    this.setState({ n: this.state.n + 1 })
-  }
-})
-React.render(<App />, document.querySelector('#content'))
+var ReactDOM = require('react-dom')
+var ud = require('ud')
+import App from './lib/app.js'
+
+ReactDOM.render(
+  React.createElement(ud.defn(module, App), null),
+  document.querySelector('#content')
+)
