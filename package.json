@@ -33,5 +33,5 @@
     "uglifyjs": "^2.4.10",
     "watchify": "^3.6.1"
   },
-  "license": "public domain"
+  "license": "MIT"
 }
