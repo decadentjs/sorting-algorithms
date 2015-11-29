@@ -1,3 +1,6 @@
+/*
+  TODO: make stateful
+*/
 function selection_sort(a) {
   /* a[0] to a[n-1] is the array to sort */
   var i, j, n = a.length;

@@ -8,4 +8,5 @@ class Sortable extends React.Component {
     );
   }
 }
+
 export default Sortable;
