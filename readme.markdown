@@ -1,4 +1,4 @@
-# sorting-algorithm
+# sorting-algorithms
 
 A React-based visualization of different sorting algorithms for educational purposes,
 based on the bare-bones [react](https://facebook.github.io/react/) starter
