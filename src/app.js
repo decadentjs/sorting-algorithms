@@ -3,7 +3,7 @@ var React = require('react');
 function selection_sort(a) {
   /* a[0] to a[n-1] is the array to sort */
   var i, j, n = a.length;
-  var iMin, tmp;
+  var iMin, tmp, finished;
 
   /* advance the position through the entire array */
   /*   (could do j < n-1 because single element is also min element) */
@@ -21,11 +21,15 @@ function selection_sort(a) {
       }
     }
 
+    if (j === n - 2 && i === n) {
+      finished = true;
+    }
+
     if (iMin != j) {
       tmp = a[j];
       a[j] = a[iMin];
       a[iMin] = tmp;
-      return;
+      return finished;
     }
   }
 }
@@ -40,14 +44,27 @@ class Sorter extends React.Component {
     this.state = { list: buf };
   }
   componentDidMount () {
-    console.log('mounted');
-    setInterval(function() {
-      selection_sort(this.state.list);
-      this.setState({list: this.state.list});
-    }.bind(this), 1000);
+    this.timer = setInterval(() => {
+      if (selection_sort(this.state.list)) {
+        clearInterval(this.timer);
+        this.setState({list: this.state.list, complete: true});
+      }
+      else {
+        this.setState({list: this.state.list});
+      }
+    }, 1000);
   }
   render () {
-    return <div>{this.state.list.map(function(w){ return <Sortable w={w}/>;})}</div>;
+    var c = '';
+    if (this.state.complete) {
+      c = 'complete';
+    }
+    return (
+      <div className={c}>
+        <h2>Selection Sort</h2>
+        {this.state.list.map(w => <Sortable w={w}/>)}
+      </div>
+    );
   }
 }
 
@@ -67,7 +84,7 @@ class App extends React.Component {
   }
   render () {
     return (
-      <Sorter />
+      <Sorter type="selection-sort"/>
     );
   }
 }
