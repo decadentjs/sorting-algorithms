@@ -14,9 +14,9 @@
     ]
   },
   "scripts": {
-    "build": "NODE_ENV=production browserify main.js | uglifyjs -cm > dist/bundle.js",
+    "build": "NODE_ENV=production mkdirp dist & browserify main.js | uglifyjs -cm > dist/bundle.js",
     "start": "npm run www & npm run watch",
-    "watch": "watchify main.js -p browserify-hmr -o dist/bundle.js -dv",
+    "watch": "mkdirp dist & watchify main.js -p browserify-hmr -o dist/bundle.js -dv",
     "www": "ecstatic -p 8000 ."
   },
   "dependencies": {
@@ -26,11 +26,12 @@
     "browserify": "^12.0.1",
     "browserify-hmr": "~0.3.1",
     "ecstatic": "~0.8.0",
+    "mkdirp": "^0.5.1",
     "react": "~0.14.3",
     "react-dom": "^0.14.3",
     "ud": "^2.0.2",
     "uglifyjs": "^2.4.10",
     "watchify": "^3.6.1"
   },
-  "license": "public domain"
+  "license": "MIT"
 }
