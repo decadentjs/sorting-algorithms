@@ -1,20 +1,27 @@
 var React = require('react');
 import selection_sort from './selection_sort.js';
+import insertion_sort from './insertion_sort.js';
 import Sortable from './sortable.js';
 
 class Sorter extends React.Component {
   constructor (props) {
     super(props);
-    var buf = [];
-    for (var i = 0; i < 20; i++) {
-      buf.push(250 * Math.random());
+    this.state = { list: this.props.list };
+    // this.algo = this.getAlgo();
+  }
+
+  getAlgo() {
+    switch (this.props.type) {
+      case 'selection-sort':
+        return selection_sort;
+      case 'insertion-sort':
+        return insertion_sort;
     }
-    this.state = { list: buf };
   }
 
   componentDidMount () {
     this.timer = setInterval(() => {
-      if (selection_sort(this.state.list)) {
+      if (this.getAlgo()(this.state.list)) {
         clearInterval(this.timer);
         this.setState({list: this.state.list, complete: true});
       }
@@ -24,6 +31,15 @@ class Sorter extends React.Component {
     }, 1000);
   }
 
+  getHeader () {
+    switch (this.props.type) {
+      case 'selection-sort':
+        return <h1>Selection Sort</h1>;
+      case 'insertion-sort':
+        return <h1>Insertion Sort</h1>;
+    }
+  }
+
   render () {
     var c = '';
     if (this.state.complete) {
@@ -31,7 +47,7 @@ class Sorter extends React.Component {
     }
     return (
       <div className={c}>
-        <h2>Selection Sort</h2>
+        {this.getHeader()}
         {this.state.list.map(w => <Sortable w={w}/>)}
       </div>
     );
