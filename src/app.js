@@ -5,6 +5,7 @@ class App extends React.Component {
   constructor (props) {
     super(props);
   }
+
   render () {
     var buf = [];
     for (var i = 0; i < 20; i++) {
