@@ -15,6 +15,7 @@ class App extends React.Component {
       <div>
         <Sorter type="selection-sort" list={buf}/>
         <Sorter type="insertion-sort" list={buf}/>
+        <Sorter type="bubble-sort"    list={buf}/>
       </div>
     );
   }

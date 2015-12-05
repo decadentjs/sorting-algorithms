@@ -27,7 +27,6 @@ class Sorter extends React.Component {
   componentDidMount () {
     this.timer = setInterval(() => {
       var ret = this.getAlgo()(this.state.list, this.state.resume);
-      console.log(ret);
       if (ret.finished) {
         clearInterval(this.timer);
         this.setState({list: this.state.list, resume: ret, complete: true});
