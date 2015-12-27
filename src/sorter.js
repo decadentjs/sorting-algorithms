@@ -1,4 +1,5 @@
 var React = require('react');
+var classnames = require('classnames');
 import selection_sort from './selection_sort.js';
 import insertion_sort from './insertion_sort.js';
 import bubble_sort from './bubble_sort.js';
@@ -37,25 +38,12 @@ class Sorter extends React.Component {
     }, TIMEOUT);
   }
 
-  getHeader () {
-    switch (this.props.type) {
-      case 'selection-sort':
-        return <h1>Selection Sort</h1>;
-      case 'insertion-sort':
-        return <h1>Insertion Sort</h1>;
-      case 'bubble-sort':
-        return <h1>Bubble Sort</h1>;
-    }
-  }
-
   render () {
-    var c = '';
-    if (this.state.complete) {
-      c = 'complete';
-    }
+    var c = classnames('sorter', {
+      'complete': this.state.complete
+    });
     return (
       <div className={c}>
-        {this.getHeader()}
         {this.state.list.map((w, i) => <Sortable
           w={w}
           sorted={this.state.resume && i < this.state.resume.i || this.state.complete}

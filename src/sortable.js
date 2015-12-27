@@ -1,20 +1,14 @@
 var React = require('react');
+var classnames = require('classnames');
 
 class Sortable extends React.Component {
   render () {
-    var c = 'sortable';
-    if (this.props.sorted) {
-      c += ' sorted';
-    }
-    if (this.props.current) {
-      c += ' current';
-    }
-    if (this.props.target) {
-      c += ' target';
-    }
-    if (this.props.selected) {
-      c += ' selected';
-    }
+    var c = classnames('sortable', {
+      'sorted': this.props.sorted,
+      'current': this.props.current,
+      'target': this.props.target,
+      'selected': this.props.selected
+    });
     return (
       <div className={c}
         style={{width: this.props.w + 'px'}}></div>
