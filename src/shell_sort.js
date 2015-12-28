@@ -22,28 +22,31 @@ function shell_sort(a, resume) {
     for (i = i0; i < len; i += 1) {
       // add a[i] to the elements that have been gap sorted
       // save a[i] in temp and make a hole at position i
-      temp = a[i];
+      temp = resume && resume.temp !== undefined ? resume.temp : a[i];
       // shift earlier gap-sorted elements up until the correct location for a[i] is found
-      j0 = resume && resume.j || i;
+      j0 = resume && resume.j !== undefined ? resume.j : i;
       for (j = j0; j >= gap && a[j - gap] > temp; j -= gap) {
         a[j] = a[j - gap];
         return {
           finished: false,
           gap: gap,
+          ranges: gap === 1 && [[0, i]],
+          temp: temp,
           i: i,
-          j: j - 1
+          j: j - gap
         };
       }
       // put temp (the original a[i]) in its correct location
       a[j] = temp;
       return {
         finished: false,
+        ranges: gap === 1 && [[0, i + 1]],
         gap: gap,
         i: i + 1
       };
     }
     return {
-      finished: false,
+      finished: gaps.indexOf(gap) === gaps.length - 1,
       gap: gaps[gaps.indexOf(gap) + 1]
     };
   }
