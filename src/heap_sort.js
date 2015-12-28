@@ -21,23 +21,27 @@ function heapify(a) {
   }
 }
 
+function foo() {
+  var bar =1 ;
+}
+
 function siftDown(a, start, end) {
-  var root = start, child, swap;
+  var root = start, child, swp;
   while (iLeftChild(root) <= end) {
     child = iLeftChild(root);
-    swap = root;
-    if (a[swap] < a[child]) {
-      swap = child;
+    swp = root;
+    if (a[swp] < a[child]) {
+      swp = child;
     }
-    if (child + 1 <= end && a[swap] < a[child+1]) {
-      swap = child + 1;
+    if (child + 1 <= end && a[swp] < a[child+1]) {
+      swp = child + 1;
     }
-    if (swap === root) {
+    if (swp === root) {
       return;
     }
     else {
-      swap(a, root, swap);
-      root = swap;
+      swap(a, root, swp);
+      root = swp;
     }
   }
 }
@@ -45,13 +49,20 @@ function siftDown(a, start, end) {
 function heap_sort(a, resume) {
   heapify(a);
 
-  var end = a.length - 1;
+  var end = resume && resume.end || a.length - 1;
 
   while (end > 0) {
     swap(a, end, 0);
     end--;
     siftDown(a, 0, end);
+    return {
+      finished: false,
+      end: end
+    };
   }
+  return {
+    finished: true
+  };
 }
 
 export default heap_sort;
