@@ -50,13 +50,22 @@ class Sorter extends React.Component {
       <div className={c}>
         {this.state.list.map((w, i) => <Sortable
           w={w}
-          sorted={this.state.resume && i < this.state.resume.i || this.state.complete}
+          sorted={this.state.resume && this.state.resume.ranges && into(this.state.resume.ranges, i) || this.state.complete}
           selected={this.state.resume && i === this.state.resume.jMin}
           current={this.state.resume && i === this.state.resume.i}
           target={this.state.resume && i === this.state.resume.j}/>)}
       </div>
     );
   }
+}
+
+function into(ranges, num) {
+  if (!ranges) {
+    return false;
+  }
+  return ranges.some(r => {
+    return (r[0] <= num) && (num <= r[1]);
+  });
 }
 
 export default Sorter;

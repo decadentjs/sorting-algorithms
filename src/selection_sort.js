@@ -28,6 +28,7 @@ function selection_sort(a, state) {
           i: i,
           j: j,
           jMin: jMin,
+          ranges: [[0, i - 1]],
           finished: finished
         };
       }
@@ -44,6 +45,7 @@ function selection_sort(a, state) {
         i: i + 1,
         j: i + 1,
         jMin: i + 1,
+        ranges: [[0, i]],
         finished: finished
       };
     }
@@ -52,6 +54,7 @@ function selection_sort(a, state) {
       i: i + 1,
       j: i + 1,
       jMin: i + 1,
+      ranges: [[0, i]],
       finished: finished
     };
   }

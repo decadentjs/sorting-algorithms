@@ -11,6 +11,7 @@ function insertion_sort(a, resume) {
       if (j > 0) {
         return {
           finished: i === n,
+          ranges: [[0, i]],
           i: i,
           j: j,
           x: x
@@ -19,6 +20,7 @@ function insertion_sort(a, resume) {
     }
     return {
       finished: i === n,
+      ranges: [[0, i]],
       i: i + 1
     };
   }
