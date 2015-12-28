@@ -13,7 +13,6 @@ function iRightChild(i) {
 }
 
 function heapify(a, resume) {
-  // console.log('entry: heapify:', a, resume);
   var ret, start = resume && resume.i !== undefined ? resume.i : iParent(a.length - 1);
 
   while (start >= 0) {
@@ -23,29 +22,18 @@ function heapify(a, resume) {
     }
     ret.i = start;
     if (start >= 0) {
-      // console.log('heapify:', ret);
       return ret;
     }
   }
 
-  // while (start >= 0 && !(resume && resume.sifted)) {
-  //   var ret = siftDown(a, start, a.length - 1, resume);
-  //   ret.i = start--;
-  //   console.log(ret);
-  //   return ret;
-  // }
-
-  ret = {
+  return {
     finished: false,
     heapified: true
   };
-  // console.log('heapify:', ret);
-  return ret;
 }
 
 function siftDown(a, start, end, resume) {
-  // console.log('entry: siftDown:', a, start, end, resume);
-  var ret, root = resume && resume.j !== undefined ? resume.j : start, child, swp;
+  var root = resume && resume.j !== undefined ? resume.j : start, child, swp;
   while (iLeftChild(root) <= end) {
     child = iLeftChild(root);
     swp = root;
@@ -56,40 +44,30 @@ function siftDown(a, start, end, resume) {
       swp = child + 1;
     }
     if (swp === root) {
-      ret = {
+      return {
         finished: false,
         sifted: true
       };
-      // console.log('siftDown:a:', ret);
-      return ret;
     }
     else {
       swap(a, root, swp);
       root = swp;
-      ret = {
+      return {
         finished: false,
         j: root
       };
-      // console.log('siftDown:b:', ret);
-      return ret;
     }
   }
-  ret = {
+  return {
     finished: false,
     sifted: true
   };
-  // console.log('siftDown:c:', ret);
-  return ret;
 }
 
 function heap_sort(a, resume) {
   if (!(resume && resume.heapified)) {
     return heapify(a, resume);
   }
-
-  // return {
-  //   finished: true
-  // };
 
   var end = resume && resume.i !== undefined ? resume.i : a.length - 1;
 
