@@ -2,15 +2,9 @@ var React = require('react');
 var arrayShuffle = require('array-shuffle');
 
 import Sorter from './sorter.js';
+import swap from './swap.js';
 
 const WIDTH = 100;
-
-function swap(arr, a, b) {
-  var t;
-  t = arr[a];
-  arr[a] = arr[b];
-  arr[b] = t;
-}
 
 class App extends React.Component {
   constructor (props) {
@@ -64,7 +58,6 @@ class App extends React.Component {
   }
 
   render () {
-
     return (
       <div>
         <div className="row">
@@ -72,30 +65,35 @@ class App extends React.Component {
           <h1>Insertion Sort</h1>
           <h1>Selection Sort</h1>
           <h1>Bubble Sort</h1>
+          <h1>Heap Sort</h1>
         </div>
         <div className="row">
           <h2>Random</h2>
           <Sorter type="insertion-sort" list={this.state.random_buf}/>
           <Sorter type="selection-sort" list={this.state.random_buf}/>
           <Sorter type="bubble-sort"    list={this.state.random_buf}/>
+          <Sorter type="heap-sort"      list={this.state.random_buf}/>
         </div>
         <div className="row">
           <h2>Nearly Sorted</h2>
           <Sorter type="insertion-sort" list={this.state.partially_ordered_buf}/>
           <Sorter type="selection-sort" list={this.state.partially_ordered_buf}/>
           <Sorter type="bubble-sort"    list={this.state.partially_ordered_buf}/>
+          <Sorter type="heap-sort"      list={this.state.partially_ordered_buf}/>
         </div>
         <div className="row">
           <h2>Reversed</h2>
           <Sorter type="insertion-sort" list={this.state.reversed_buf}/>
           <Sorter type="selection-sort" list={this.state.reversed_buf}/>
           <Sorter type="bubble-sort"    list={this.state.reversed_buf}/>
+          <Sorter type="heap-sort"      list={this.state.reversed_buf}/>
         </div>
         <div className="row">
           <h2>Few Unique</h2>
           <Sorter type="insertion-sort" list={this.state.few_unique_buf}/>
           <Sorter type="selection-sort" list={this.state.few_unique_buf}/>
           <Sorter type="bubble-sort"    list={this.state.few_unique_buf}/>
+          <Sorter type="heap-sort"      list={this.state.few_unique_buf}/>
         </div>
       </div>
     );
