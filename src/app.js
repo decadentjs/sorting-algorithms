@@ -65,6 +65,7 @@ class App extends React.Component {
           <h1>Insertion Sort</h1>
           <h1>Selection Sort</h1>
           <h1>Bubble Sort</h1>
+          <h1>Shell Sort</h1>
           <h1>Heap Sort</h1>
         </div>
         <div className="row">
@@ -72,6 +73,7 @@ class App extends React.Component {
           <Sorter type="insertion-sort" list={this.state.random_buf}/>
           <Sorter type="selection-sort" list={this.state.random_buf}/>
           <Sorter type="bubble-sort"    list={this.state.random_buf}/>
+          <Sorter type="shell-sort"     list={this.state.random_buf}/>
           <Sorter type="heap-sort"      list={this.state.random_buf}/>
         </div>
         <div className="row">
@@ -79,6 +81,7 @@ class App extends React.Component {
           <Sorter type="insertion-sort" list={this.state.partially_ordered_buf}/>
           <Sorter type="selection-sort" list={this.state.partially_ordered_buf}/>
           <Sorter type="bubble-sort"    list={this.state.partially_ordered_buf}/>
+          <Sorter type="shell-sort"     list={this.state.partially_ordered_buf}/>
           <Sorter type="heap-sort"      list={this.state.partially_ordered_buf}/>
         </div>
         <div className="row">
@@ -86,6 +89,7 @@ class App extends React.Component {
           <Sorter type="insertion-sort" list={this.state.reversed_buf}/>
           <Sorter type="selection-sort" list={this.state.reversed_buf}/>
           <Sorter type="bubble-sort"    list={this.state.reversed_buf}/>
+          <Sorter type="shell-sort"     list={this.state.reversed_buf}/>
           <Sorter type="heap-sort"      list={this.state.reversed_buf}/>
         </div>
         <div className="row">
@@ -93,6 +97,7 @@ class App extends React.Component {
           <Sorter type="insertion-sort" list={this.state.few_unique_buf}/>
           <Sorter type="selection-sort" list={this.state.few_unique_buf}/>
           <Sorter type="bubble-sort"    list={this.state.few_unique_buf}/>
+          <Sorter type="shell-sort"     list={this.state.few_unique_buf}/>
           <Sorter type="heap-sort"      list={this.state.few_unique_buf}/>
         </div>
       </div>
