@@ -6,7 +6,7 @@ import bubble_sort from './bubble_sort.js';
 import heap_sort from './heap_sort.js';
 import Sortable from './sortable.js';
 
-var TIMEOUT = 50;
+var TIMEOUT = 100;
 
 class Sorter extends React.Component {
   constructor (props) {
@@ -31,6 +31,7 @@ class Sorter extends React.Component {
   componentDidMount () {
     this.timer = setInterval(() => {
       var ret = this.getAlgo()(this.state.list, this.state.resume);
+      // console.log(this.state.list, ret);
       if (ret.finished) {
         clearInterval(this.timer);
         this.setState({list: this.state.list, resume: ret, complete: true});
