@@ -1,3 +1,5 @@
+import swap from './swap.js';
+
 function selection_sort(a, state) {
   /* a[0] to a[n-1] is the array to sort */
   var i, j, n = a.length;
@@ -36,9 +38,7 @@ function selection_sort(a, state) {
     }
 
     if (jMin != i) {
-      tmp = a[i];
-      a[i] = a[jMin];
-      a[jMin] = tmp;
+      swap(a, i, jMin);
 
       return {
         i: i + 1,

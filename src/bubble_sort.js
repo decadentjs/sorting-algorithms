@@ -1,3 +1,5 @@
+import swap from './swap.js';
+
 function bubble_sort(a, resume) {
   var i, j, tmp, swapped, n = a.length;
   var finished = false;
@@ -8,9 +10,7 @@ function bubble_sort(a, resume) {
     var j0 = resume && resume.j !== undefined ? resume.j : n;
     for (j = j0; j > i; j--) {
       if (a[j] < a[j-1]) {
-        tmp = a[j-1];
-        a[j-1] = a[j];
-        a[j] = tmp;
+        swap(a, j, j-1);
         swapped = true;
       }
       return {

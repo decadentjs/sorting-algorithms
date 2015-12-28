@@ -3,6 +3,7 @@ var classnames = require('classnames');
 import selection_sort from './selection_sort.js';
 import insertion_sort from './insertion_sort.js';
 import bubble_sort from './bubble_sort.js';
+import heap_sort from './heap_sort.js';
 import Sortable from './sortable.js';
 
 var TIMEOUT = 50;
@@ -22,6 +23,8 @@ class Sorter extends React.Component {
         return insertion_sort;
       case 'bubble-sort':
         return bubble_sort;
+      case 'heap-sort':
+        return heap_sort;
     }
   }
 
