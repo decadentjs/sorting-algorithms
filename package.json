@@ -1,5 +1,5 @@
 {
-  "name": "react-starter-hmr",
+  "name": "sorting-algorithms",
   "browserify": {
     "transform": [
       [
@@ -20,6 +20,7 @@
     "www": "ecstatic -p 8000 ."
   },
   "dependencies": {
+    "array-shuffle": "^1.0.0",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
     "babelify": "^7.2.0",
@@ -34,5 +35,18 @@
     "uglifyjs": "^2.4.10",
     "watchify": "^3.6.1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "description": "A React-based visualization of different sorting algorithms for educational purposes, based on the bare-bones [react](https://facebook.github.io/react/) starter using [babelify](https://npmjs.com/package/babelify) for es6 and jsx under [browserify](http://browserify.org)/[watchify](https://npmjs.com/package/watchify) with hot module replacement from [browserify-hmr](https://npmjs.com/package/browserify-hmr) and [npm run scripts](http://substack.net/task_automation_with_npm_run)",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/decadentjs/sorting-algorithms.git"
+  },
+  "author": "Claudio Procida",
+  "bugs": {
+    "url": "https://github.com/decadentjs/sorting-algorithms/issues"
+  },
+  "homepage": "https://github.com/decadentjs/sorting-algorithms#readme"
 }
