@@ -31,6 +31,11 @@ class App extends React.Component {
     swap(partially_ordered_buf, 13, 14);
     swap(partially_ordered_buf, 16, 18);
 
+    var ordered_buf = [];
+    for (i = 0; i < 20; i++) {
+      ordered_buf.push(WIDTH / 20 * (i + 1));
+    }
+
     var reversed_buf = [];
     for (i = 0; i < 20; i++) {
       reversed_buf.push(WIDTH / 20 * (20 - i));
@@ -44,6 +49,7 @@ class App extends React.Component {
     return {
       random_buf: random_buf,
       partially_ordered_buf: partially_ordered_buf,
+      ordered_buf: ordered_buf,
       reversed_buf: reversed_buf,
       few_unique_buf: few_unique_buf
     };
@@ -83,6 +89,14 @@ class App extends React.Component {
           <Sorter type="bubble-sort"    list={this.state.partially_ordered_buf}/>
           <Sorter type="shell-sort"     list={this.state.partially_ordered_buf}/>
           <Sorter type="heap-sort"      list={this.state.partially_ordered_buf}/>
+        </div>
+        <div className="row">
+          <h2>Already Sorted</h2>
+          <Sorter type="insertion-sort" list={this.state.ordered_buf}/>
+          <Sorter type="selection-sort" list={this.state.ordered_buf}/>
+          <Sorter type="bubble-sort"    list={this.state.ordered_buf}/>
+          <Sorter type="shell-sort"     list={this.state.ordered_buf}/>
+          <Sorter type="heap-sort"      list={this.state.ordered_buf}/>
         </div>
         <div className="row">
           <h2>Reversed</h2>
