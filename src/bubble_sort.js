@@ -15,6 +15,7 @@ function bubble_sort(a, resume) {
       }
       return {
         finished: false,
+        ranges: [[0, i - 1]],
         i: i,
         j: j - 1,
         swapped: swapped
@@ -25,6 +26,7 @@ function bubble_sort(a, resume) {
     }
     return {
       finished: false,
+      ranges: [[0, i]],
       i: i + 1,
       swapped: swapped
     };

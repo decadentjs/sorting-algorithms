@@ -80,6 +80,7 @@ function heap_sort(a, resume) {
     var ret = siftDown(a, 0, end, resume);
     ret.heapified = true;
     ret.i = end;
+    ret.ranges = [[end + 1, a.length - 1]];
     return ret;
   }
   return {
