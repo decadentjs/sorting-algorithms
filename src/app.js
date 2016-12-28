@@ -1,6 +1,5 @@
-var React = require('react');
-var arrayShuffle = require('array-shuffle');
-
+import React from 'react';
+import arrayShuffle from 'array-shuffle';
 import Sorter from './sorter.js';
 import swap from './swap.js';
 
