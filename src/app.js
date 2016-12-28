@@ -66,15 +66,15 @@ class App extends React.Component {
     return (
       <div>
         <div className="row">
-          <h1></h1>
-          <h1>Insertion Sort</h1>
-          <h1>Selection Sort</h1>
-          <h1>Bubble Sort</h1>
-          <h1>Shell Sort</h1>
-          <h1>Heap Sort</h1>
+          <div className="column-heading"></div>
+          <div className="column-heading">Insertion Sort</div>
+          <div className="column-heading">Selection Sort</div>
+          <div className="column-heading">Bubble Sort</div>
+          <div className="column-heading">Shell Sort</div>
+          <div className="column-heading">Heap Sort</div>
         </div>
         <div className="row">
-          <h2>Random</h2>
+          <div className="row-heading">Random</div>
           <Sorter type="insertion-sort" list={this.state.random_buf}/>
           <Sorter type="selection-sort" list={this.state.random_buf}/>
           <Sorter type="bubble-sort"    list={this.state.random_buf}/>
@@ -82,7 +82,7 @@ class App extends React.Component {
           <Sorter type="heap-sort"      list={this.state.random_buf}/>
         </div>
         <div className="row">
-          <h2>Nearly Sorted</h2>
+          <div className="row-heading">Nearly Sorted</div>
           <Sorter type="insertion-sort" list={this.state.partially_ordered_buf}/>
           <Sorter type="selection-sort" list={this.state.partially_ordered_buf}/>
           <Sorter type="bubble-sort"    list={this.state.partially_ordered_buf}/>
@@ -90,7 +90,7 @@ class App extends React.Component {
           <Sorter type="heap-sort"      list={this.state.partially_ordered_buf}/>
         </div>
         <div className="row">
-          <h2>Already Sorted</h2>
+          <div className="row-heading">Already Sorted</div>
           <Sorter type="insertion-sort" list={this.state.ordered_buf}/>
           <Sorter type="selection-sort" list={this.state.ordered_buf}/>
           <Sorter type="bubble-sort"    list={this.state.ordered_buf}/>
@@ -98,7 +98,7 @@ class App extends React.Component {
           <Sorter type="heap-sort"      list={this.state.ordered_buf}/>
         </div>
         <div className="row">
-          <h2>Reversed</h2>
+          <div className="row-heading">Reversed</div>
           <Sorter type="insertion-sort" list={this.state.reversed_buf}/>
           <Sorter type="selection-sort" list={this.state.reversed_buf}/>
           <Sorter type="bubble-sort"    list={this.state.reversed_buf}/>
@@ -106,7 +106,7 @@ class App extends React.Component {
           <Sorter type="heap-sort"      list={this.state.reversed_buf}/>
         </div>
         <div className="row">
-          <h2>Few Unique</h2>
+          <div className="row-heading">Few Unique</div>
           <Sorter type="insertion-sort" list={this.state.few_unique_buf}/>
           <Sorter type="selection-sort" list={this.state.few_unique_buf}/>
           <Sorter type="bubble-sort"    list={this.state.few_unique_buf}/>

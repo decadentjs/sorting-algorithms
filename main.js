@@ -1,9 +1,9 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var ud = require('ud');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {defn} from 'ud';
 import App from './src/app.js';
 
 ReactDOM.render(
-  React.createElement(ud.defn(module, App), null),
+  React.createElement(defn(module, App), null),
   document.querySelector('#content')
 );

@@ -20,12 +20,20 @@
         margin: 2px 0 2px 8px;
       }
 
-      .row h1, .sorter {
+      .column-heading,
+      .row-heading {
+        font-weight: bold;
+        margin: 0.67em 0;
+      }
+
+      .row .column-heading,
+      .sorter {
         width: 120px;
         font-size: 14px;
       }
 
-      .row h2, .row h1:first-child {
+      .row .row-heading,
+      .row .column-heading:first-child {
         font-size: 14px;
         width: 100px;
       }
@@ -65,6 +73,8 @@
     </style>
   </head>
   <body>
+    <h1>Sorting Algorithms</h1>
+    <p>A React-based visualization of different sorting algorithms to help understand their behavior, strenghts and weaknesses.</p>
     <div id="content"></div>
     <script src="dist/bundle.js"></script>
   </body>

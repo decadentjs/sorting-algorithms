@@ -11,7 +11,7 @@ class Sortable extends React.Component {
     });
     return (
       <div className={c}
-        style={{width: this.props.w + 'px'}}></div>
+        style={{width: `${this.props.w}px`}}></div>
     );
   }
 }
