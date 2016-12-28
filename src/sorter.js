@@ -1,5 +1,5 @@
-var React = require('react');
-var classnames = require('classnames');
+import React from 'react';
+import classnames from 'classnames';
 import selection_sort from './selection_sort.js';
 import insertion_sort from './insertion_sort.js';
 import bubble_sort from './bubble_sort.js';
@@ -52,6 +52,7 @@ class Sorter extends React.Component {
       <div className={c}>
         {this.state.list.map((w, i) => <Sortable
           w={w}
+          key={i}
           sorted={this.state.resume && this.state.resume.ranges && into(this.state.resume.ranges, i) || this.state.complete}
           selected={this.state.resume && i === this.state.resume.jMin}
           current={this.state.resume && i === this.state.resume.i}
